@@ -1,0 +1,60 @@
+.post {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+input[type=submit][value="Post"] {
+    margin-top: 5px;
+}
+
+.body {
+    padding: 10px;
+}
+
+.gray {
+    color: #686868
+}
+
+#user-stats {
+    display: flex;
+    width: 270px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#user-title {
+    display: flex;
+}
+
+.follow-btn {
+    font-size: smaller;
+    background-color: #0095f7;
+    border: 0px;
+    margin-left: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.edit_btn {
+    float: right;
+}
+
+.post_content {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    margin-right: 65px;
+}
+
+.fa-regular {
+    color: #686868;
+    transition: 0.4s
+}
+
+.fa-solid {
+    color: #ff3333
+}
+
+.fa-heart:hover {
+    color: #ff3333
+}

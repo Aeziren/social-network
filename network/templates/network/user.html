@@ -1,0 +1,54 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div id="user-title">
+        <h3>{{ profile.username }}'s Profile</h3>
+        {% if not same_user and user.is_authenticated %}
+            <button id="follow_btn"
+            data-from_user="{{ user.username }}"
+            data-to_user="{{ profile.username }}"
+            data-follow_type="{{ follow_type }}"
+            class="follow-btn btn btn-primary">{{ follow_type|title }}</button>
+        {% endif %}
+    </div>
+    <div id="user-stats">
+        <span><strong>{{ qtt_posts }}</strong> Posts</span>
+        <span><strong>{{ qtt_followers }}</strong> Followers</span>
+        <span><strong>{{ qtt_following}}</strong> Following</span>
+    </div>
+    {% for post in page_obj %}
+        <div class="mb-3 post" id="post{{ post.pk }}" data-id="{{ post.pk }}">
+            {% if post.user == request.user %}
+                <button class="edit_btn btn btn-primary"
+                data-post_id="{{ post.pk }}">Edit</button>
+            {% endif %}
+            <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
+            <div class="post_content">
+                {{ post.content }}
+            </div>
+            <button class="save_btn btn btn-primary" hidden>Save</button>
+            <button class="cancel_btn btn btn-secondary" hidden>Cancel</button>
+            <p class="gray">{{ post.timestamp }}</p>
+            {% if post in liked_posts %}
+                <i data-action="unlike" class="fa-solid fa-heart fa-lg"></i>
+            {% else %}
+                <i data-action="like" class="fa-regular fa-heart fa-lg"></i>
+            {% endif %}
+            <span class="qtt_likes gray">{{ post.qtt_likes }}</span>
+        </div>
+    {% endfor %}
+    <nav aria-label="pages">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link disabled" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link">Previous</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link">Next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
