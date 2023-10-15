@@ -1,6 +1,6 @@
 {% extends "network/layout.html" %}
 
-{% block body %}
+{% block content %}
     <h1>Following</h1>
     {% for post in page_obj %}
         <div class="mb-3 post" id="post{{ post.pk }}" data-id="{{ post.pk }}">

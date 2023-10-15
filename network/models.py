@@ -1,14 +1,15 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-
+DEFAULT_PHOTO = ""
 class User(AbstractUser):
-    pass
+    photo = models.URLField(default=DEFAULT_PHOTO)
 
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     content = models.TextField(max_length=280)
+    image = models.URLField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     qtt_likes = models.PositiveIntegerField(default=0)
 

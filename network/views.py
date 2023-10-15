@@ -13,6 +13,9 @@ from .models import User, Post, Like, Follow
 ITEMS_PER_PAGE = 10
 
 def index(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))
+
     if request.method == "POST":
         content = request.POST.get("content")
         if content:
@@ -21,11 +24,10 @@ def index(request):
 
     posts = Post.objects.all().order_by("-timestamp")
 
-
+    # Highlight likes on liked posts
     liked_posts = []
-    if request.user.is_authenticated:
-        for item in request.user.liked.all():
-            liked_posts.append(item.post)
+    for item in request.user.liked.all():
+        liked_posts.append(item.post)
 
     # Pagination
     pages = Paginator(posts, ITEMS_PER_PAGE)
@@ -88,7 +90,6 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "network/register.html")
-
 
 def user(request, username):
     profile = User.objects.get(username=username)

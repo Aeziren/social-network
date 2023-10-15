@@ -1,6 +1,6 @@
 {% extends "network/layout.html" %}
 
-{% block body %}
+{% block content %}
     <div id="user-title">
         <h3>{{ profile.username }}'s Profile</h3>
         {% if not same_user and user.is_authenticated %}

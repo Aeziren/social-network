@@ -8,17 +8,59 @@ input[type=submit][value="Post"] {
     margin-top: 5px;
 }
 
-.body {
-    padding: 10px;
+body {
+    display: flex;
     background-image: url("images/background.jpg");
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
 }
 
+.content {
+    padding: 10px;
+    color: #f2f2f2;
+    width: 60%;
+}
+
+.navbar {
+    height: 100vh;
+    width: 20vw;
+    position: fixed;
+}
+
 .logo {
     max-width: 300px;
 }
+
+.main {
+    width: 100%;
+    margin-left: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    clip-path: circle();
+    width: 100px;
+    height: auto;
+}
+
+.post-image {
+    max-width: 100%;
+    max-height: 50vh;
+    height: auto;
+    width: auto;
+    margin-left: 0 auto;
+}
+
+.container-image {
+    text-align: center;
+    max-width: 100%;
+    max-height: 50vh;
+}
+
 .sign-form {
     display: flex;
     flex-direction: column;
@@ -61,6 +103,11 @@ a:hover{
     text-align: left;
     font-size: smaller;
     color: #f2f2f2
+}
+
+#icon {
+    width: auto;
+    height: 80px;
 }
 
 .btn-primary {

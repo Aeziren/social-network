@@ -1,6 +1,6 @@
 {% extends "network/layout.html" %}
 
-{% block body %}
+{% block content %}
     <h1>All Posts</h1>
     {% if user.is_authenticated %}
         <div class="mb-3 post">
@@ -8,6 +8,7 @@
                 {% csrf_token %}
                 <label for="new-post" class="form-label"><h4>New Post</h4></label>
                 <textarea class="form-control" id="new-post" rows="3" name="content"></textarea>
+                <input type="url" name="post-image" pattern="https?://.*" placeholder="Image (optional)">
                 <input type="submit" class="btn btn-primary" value="Post">
             </form>
         </div>
@@ -17,9 +18,12 @@
             {% if post.user == request.user %}
                 <button class="edit_btn btn btn-primary">Edit</button>
             {% endif %}
-            <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
+            <a href="{% url 'user' username=post.user %}"><img src="{{ post.user.photo }}" class="profile-photo"><h5>{{ post.user }}</h5></a>
             <div class="post_content">
                 {{ post.content }}
+            </div>
+            <div class="container-image">
+                <img src="{{ post.image }}" alt="Post Image" class="post-image">
             </div>
             <button class="save_btn btn btn-primary" hidden>Save</button>
             <button class="cancel_btn btn btn-secondary" hidden>Cancel</button>
