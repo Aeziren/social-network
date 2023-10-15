@@ -18,8 +18,9 @@ def index(request):
 
     if request.method == "POST":
         content = request.POST.get("content")
+        post_image = request.POST.get("post_image")
         if content:
-            new_post = Post(user=request.user, content=content)
+            new_post = Post(user=request.user, content=content, image=post_image)
             new_post.save()
 
     posts = Post.objects.all().order_by("-timestamp")
