@@ -10,6 +10,68 @@ input[type=submit][value="Post"] {
 
 .body {
     padding: 10px;
+    background-image: url("images/background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo {
+    max-width: 300px;
+}
+.sign-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 300px;
+    width: 80vw;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+input.form-control {
+    background-color: transparent;
+    border: 1px solid #737373;
+    color: #f2f2f2;
+}
+
+input.form-control:focus {
+    background-color: transparent;
+    border: 1px solid #590aa4
+}
+
+.form-control:focus {
+    box-shadow: unset;
+}
+
+a {
+    color: #590aa4
+}
+
+a:hover{
+    color: #7a2fc0
+}
+
+.alternative {
+    margin-top: 2px;
+    text-align: left;
+    font-size: smaller;
+    color: #f2f2f2
+}
+
+.btn-primary {
+    background-color: #2d144e;
+    color: #f2f2f2;
+    border: unset;
+}
+
+.btn-primary:hover {
+    background-color: #2d144e;
+    box-shadow: 0px 0px 6px 2px #590aa4;
 }
 
 .gray {
