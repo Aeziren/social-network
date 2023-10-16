@@ -6,6 +6,10 @@
     min-width: 340px;
 }
 
+.new-post {
+    border: unset;
+}
+
 input[type=submit][value="Post"] {
     margin-top: 5px;
 }
@@ -26,15 +30,54 @@ body {
     text-align: left;
 }
 
+.logo-bar {
+    height: auto;
+    width: 230px;
+}
+
 .nav {
     position: fixed;
     height: 100vh;
     border-right: 1px solid #737373;
 }
 
-@media screen and (max-width: 575px){
+.nav-link {
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 990px){
     .content {
-        margin-top: 40px;
+        margin-top: 100px;
+    }
+
+    .flex-lg-column {
+        width: 100%;
+        background-color: #18191b;
+    }
+
+    .nav-link {
+        margin-bottom: unset;
+        margin-left: unset;
+    }
+
+    .logo-bar {
+        height: auto;
+        width: 130px;
+    }
+
+    .nav {
+        position: fixed;
+        height: unset;
+        border-right: unset;
+        border-bottom: 1px solid #737373;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .nav-link {
+        padding-left: 8px;
+        padding-right: 8px;
     }
 }
 
@@ -46,8 +89,20 @@ body {
     display: flex;
 }
 
-.post-input {
+.pagination {
+    background-color: transparent;
+    color: #f2f2f2;
+}
+
+.post-input, #new-post {
+    margin-top: 6px;
+    margin-bottom: 4px;
+    padding: 6px;
     width: 100%;
+    color: #f2f2f2;
+    background-color: transparent;
+    border: 1px solid #626262;
+    border-radius: 4px;
 }
 
 .profile-photo {
@@ -112,7 +167,7 @@ a {
 }
 
 a:hover{
-    color: #7c6394
+    color: #af36ff
 }
 
 .alternative {

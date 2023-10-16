@@ -2,13 +2,12 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <div class="mb-3 post">
+        <div class="mb-3 post new-post">
             <form action="{% url 'index' %}" method="POST">
                 {% csrf_token %}
                 <label for="new-post" class="form-label"><h4>New Post</h4></label>
-                <textarea class="form-control" id="new-post" rows="3" name="content"></textarea>
-                <h5>URL Image</h5>
-                <input type="url" class="post-input" name="post_image" pattern="https?://.*" placeholder="Image (optional)">
+                <textarea class="form-control" id="new-post" rows="3" name="content" placeholder="What are you thinking? "></textarea>
+                <input type="url" class="post-input" name="post_image" pattern="https?://.*" placeholder="URL Image">
                 <input type="submit" class="btn btn-primary" value="Post">
             </form>
         </div>

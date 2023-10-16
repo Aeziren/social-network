@@ -13,12 +13,9 @@
         <div class="main"></div>
             {% if user.is_authenticated %}
             <div class="navigation">
-                <ul class="nav flex-sm-column">
+                <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><img src="{% static 'network/images/logo.png' %}" id="icon"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Current</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><img src="{% static 'network/images/logo_name.png' %}" class="logo-bar"></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'user' username=user.username %}">{{ user.username }}</a>
