@@ -7,12 +7,13 @@
                 {% csrf_token %}
                 <label for="new-post" class="form-label"><h4>New Post</h4></label>
                 <textarea class="form-control" id="new-post" rows="3" name="content"></textarea>
-                <input type="url" class="post-image" name="post_image" pattern="https?://.*" placeholder="Image (optional)">
+                <h5>URL Image</h5>
+                <input type="url" class="post-input" name="post_image" pattern="https?://.*" placeholder="Image (optional)">
                 <input type="submit" class="btn btn-primary" value="Post">
             </form>
         </div>
     {% endif %}
-    <h1>All Posts</h1>
+    <hr>
     {% for post in page_obj %}
         <div class="mb-3 post" id="post{{ post.pk }}" data-id="{{ post.pk }}">
             {% if post.user == request.user %}

@@ -1,7 +1,9 @@
 .post {
     padding: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #737373;
     border-radius: 5px;
+    width: 35%;
+    min-width: 340px;
 }
 
 input[type=submit][value="Post"] {
@@ -9,23 +11,31 @@ input[type=submit][value="Post"] {
 }
 
 body {
-    display: flex;
     background-image: url("images/background.jpg");
     background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     color: #f2f2f2;
-    width: 60%;
+    width: 95%;
+    align-items: center;
+    text-align: left;
 }
 
-.navbar {
-    height: 100vh;
-    width: 20vw;
+.nav {
     position: fixed;
+    height: 100vh;
+    border-right: 1px solid #737373;
+}
+
+@media screen and (max-width: 575px){
+    .content {
+        margin-top: 40px;
+    }
 }
 
 .logo {
@@ -33,12 +43,11 @@ body {
 }
 
 .main {
-    width: 100%;
-    margin-left: 20vw;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+.post-input {
+    width: 100%;
 }
 
 .profile-photo {
@@ -59,6 +68,9 @@ body {
     text-align: center;
     max-width: 100%;
     max-height: 50vh;
+    background-color: #686868;
+    border-radius: 4px;
+    margin-bottom: 4px;
 }
 
 .container-profile {
@@ -79,6 +91,7 @@ body {
     text-align: center;
 }
 
+
 input.form-control {
     background-color: transparent;
     border: 1px solid #737373;
@@ -95,11 +108,11 @@ input.form-control:focus {
 }
 
 a {
-    color: #590aa4
+    color: #f2f2f2
 }
 
 a:hover{
-    color: #7a2fc0
+    color: #7c6394
 }
 
 .alternative {

@@ -10,32 +10,29 @@
         <script src="https://kit.fontawesome.com/75bc2abf7c.js" crossorigin="anonymous"></script>
     </head>
     <body>
-
-        {% if user.is_authenticated %}
-            <div>
-                <nav class="navbar navbar-dark bg-dark">
-                    <a class="navbar-brand" href="/"><img src="{% static 'network/images/logo.png' %}" id="icon"></a>
-                    <div>
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'user' username=user.username %}"><strong>{{ user.username }}</strong></a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">All Posts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'following' %}">Following</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                        </li>
-                    </ul>
-                    </div>
-                </nav>
+        <div class="main"></div>
+            {% if user.is_authenticated %}
+            <div class="navigation">
+                <ul class="nav flex-sm-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><img src="{% static 'network/images/logo.png' %}" id="icon"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Current</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user' username=user.username %}">{{ user.username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'following' %}">Following</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                    </li>
+                </ul>
             </div>
-        {% endif %}
+            {% endif %}
 
-        <div class="main">
             <div class="content">
                 {% block content %}
                 {% endblock %}
