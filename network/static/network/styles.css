@@ -97,7 +97,7 @@ body {
     color: #f2f2f2;
 }
 
-.post-input, #new-post {
+.post-input, #new-post, #changes {
     margin-top: 6px;
     margin-bottom: 4px;
     padding: 6px;
@@ -185,19 +185,19 @@ a:hover{
     height: 80px;
 }
 
-.btn-primary {
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active {
     background-color: #2d144e;
     color: #f2f2f2;
     border: unset;
 }
 
 .btn-primary:hover {
-    background-color: #2d144e;
     box-shadow: 0px 0px 6px 2px #590aa4;
 }
 
 .gray {
-    color: #686868
+    color: #686868;
+    font-size: smaller;
 }
 
 #user-stats {
@@ -214,11 +214,11 @@ a:hover{
 
 .follow-btn {
     font-size: smaller;
-    background-color: #0095f7;
     border: 0px;
     margin-left: 10px;
     padding-left: 8px;
     padding-right: 8px;
+    height: fit-content;
 }
 
 .edit_btn {
@@ -229,6 +229,7 @@ a:hover{
     margin-top: 8px;
     margin-bottom: 12px;
     margin-right: 65px;
+    width: 100%;
 }
 
 .fa-regular {

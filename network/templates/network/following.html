@@ -1,14 +1,27 @@
 {% extends "network/layout.html" %}
 
 {% block content %}
-    <h1>Following</h1>
+    <h2>Following</h2>
     {% for post in page_obj %}
         <div class="mb-3 post" id="post{{ post.pk }}" data-id="{{ post.pk }}">
-            <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
+            {% if post.user == request.user %}
+                <button class="edit_btn btn btn-primary">Edit</button>
+            {% endif %}
+            <div class="container-profile">
+                <img src="{{ post.user.photo }}" class="profile-photo">
+                <div>
+                    <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
+                    <p class="gray">{{ post.timestamp }}</p>
+                </div>
+            </div>
             <div class="post_content">
                 {{ post.content }}
             </div>
-            <p class="gray">{{ post.timestamp }}</p>
+            <div class="container-image">
+                <img src="{{ post.image }}" alt="Post Image" class="post-image">
+            </div>
+            <button class="save_btn btn btn-primary" hidden>Save</button>
+            <button class="cancel_btn btn btn-secondary" hidden>Cancel</button>
             {% if post in liked_posts %}
                 <i data-action="unlike" class="fa-solid fa-heart fa-lg"></i>
             {% else %}
