@@ -1,9 +1,12 @@
-.post {
+.post, .user-container {
     padding: 10px;
-    border: 1px solid #737373;
     border-radius: 5px;
     width: 35%;
     min-width: 340px;
+}
+
+.post {
+    border: 1px solid #737373;
 }
 
 .new-post {
@@ -199,8 +202,9 @@ a:hover{
 
 #user-stats {
     display: flex;
-    width: 270px;
+    width: 100%;
     justify-content: space-between;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 

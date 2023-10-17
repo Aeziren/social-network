@@ -1,34 +1,48 @@
 {% extends "network/layout.html" %}
 
 {% block content %}
-    <div id="user-title">
-        <h3>{{ profile.username }}'s Profile</h3>
-        {% if not same_user and user.is_authenticated %}
-            <button id="follow_btn"
-            data-from_user="{{ user.username }}"
-            data-to_user="{{ profile.username }}"
-            data-follow_type="{{ follow_type }}"
-            class="follow-btn btn btn-primary">{{ follow_type|title }}</button>
-        {% endif %}
-    </div>
-    <div id="user-stats">
-        <span><strong>{{ qtt_posts }}</strong> Posts</span>
-        <span><strong>{{ qtt_followers }}</strong> Followers</span>
-        <span><strong>{{ qtt_following}}</strong> Following</span>
+    <div class="user-container">
+        <div id="user-title">
+            <img src="{{ user.photo }}" class="profile-photo">
+            <div class="title-bio">
+                <h4>{{ profile.username }}'s Profile</h4>
+                <span>Example bio text</span>
+            </div>
+            {% if not same_user and user.is_authenticated %}
+                <button id="follow_btn"
+                    data-from_user="{{ user.username }}"
+                    data-to_user="{{ profile.username }}"
+                    data-follow_type="{{ follow_type }}"
+                    class="follow-btn btn btn-primary">{{ follow_type|title }}
+                </button>
+            {% endif %}
+        </div>
+        <div id="user-stats">
+            <span><strong>{{ qtt_posts }}</strong> Posts</span>
+            <span><strong>{{ qtt_followers }}</strong> Followers</span>
+            <span><strong>{{ qtt_following}}</strong> Following</span>
+        </div>
     </div>
     {% for post in page_obj %}
         <div class="mb-3 post" id="post{{ post.pk }}" data-id="{{ post.pk }}">
             {% if post.user == request.user %}
-                <button class="edit_btn btn btn-primary"
-                data-post_id="{{ post.pk }}">Edit</button>
+                <button class="edit_btn btn btn-primary">Edit</button>
             {% endif %}
-            <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
+            <div class="container-profile">
+                <img src="{{ post.user.photo }}" class="profile-photo">
+                <div>
+                    <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
+                    <p class="gray">{{ post.timestamp }}</p>
+                </div>
+            </div>
             <div class="post_content">
                 {{ post.content }}
             </div>
+            <div class="container-image">
+                <img src="{{ post.image }}" alt="Post Image" class="post-image">
+            </div>
             <button class="save_btn btn btn-primary" hidden>Save</button>
             <button class="cancel_btn btn btn-secondary" hidden>Cancel</button>
-            <p class="gray">{{ post.timestamp }}</p>
             {% if post in liked_posts %}
                 <i data-action="unlike" class="fa-solid fa-heart fa-lg"></i>
             {% else %}
