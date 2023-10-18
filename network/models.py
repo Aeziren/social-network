@@ -5,6 +5,7 @@ DEFAULT_PHOTO = "https://i.stack.imgur.com/l60Hf.png"
 
 class User(AbstractUser):
     photo = models.URLField(default=DEFAULT_PHOTO)
+    bio = models.TextField(max_length=80, blank=True, null=False)
 
 
 class Post(models.Model):

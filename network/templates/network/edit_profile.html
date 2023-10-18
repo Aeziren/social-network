@@ -1,0 +1,24 @@
+{% extends "network/layout.html" %}
+
+{% block content %}
+    <div class="user-container">
+        <div id="user-title">
+            <img src="{{ user.photo }}" class="edit-profile-photo">
+            <div class="title-bio">
+                <h4>{{ user.username }}'s Profile</h4>
+                <span>{{ user.bio }}</span>
+            </div>
+        </div>
+        <hr class="profile-hr">
+        <div class="edit-container">
+            <form action="{% url 'edit_profile' %}" method="POST">
+                <h4>Profile Photo</h4>
+                <input type="url" id="new_photo" name="new_photo" pattern="https?://.*" placeholder="URL Image" value="{{ user.photo }}">
+                <h4>Biography</h4>
+                <textarea class="form-control" id="new_bio" rows="3" name="new_bio">{{ user.bio }}</textarea>
+                <input type="submit" class="btn btn-primary" value="Save">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,4 +1,5 @@
 import json
+from time import sleep
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
@@ -124,6 +125,31 @@ def user(request, username):
         "follow_type": "unfollow" if following else "follow",
         "liked_posts": liked_posts
     })
+
+
+@login_required
+@csrf_exempt
+def edit_profile(request):
+    user = User.objects.get(pk=request.user.pk)
+
+    # Update database
+    if request.method == "POST":
+        # Update bio
+        if request.POST["new_bio"]:
+            user.bio = request.POST["new_bio"]
+            user.save()
+
+        # Update profile photo
+        if request.POST["new_photo"]:
+            user.photo = request.POST["new_photo"]
+            user.save()
+
+    sleep(2)
+    return render(request, "network/edit_profile.html", {
+        "photo": user.photo,
+        "bio": user.bio
+    })
+
 
 @login_required
 @csrf_exempt

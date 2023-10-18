@@ -97,7 +97,7 @@ body {
     color: #f2f2f2;
 }
 
-.post-input, #new-post, #changes {
+.post-input, #new-post, #changes, #new_bio, #new_photo {
     margin-top: 6px;
     margin-bottom: 4px;
     padding: 6px;
@@ -108,10 +108,23 @@ body {
     border-radius: 4px;
 }
 
-.profile-photo {
+.profile-photo, .edit-profile-photo {
+    object-fit: cover;
     clip-path: circle();
-    width: 100px;
-    height: auto;
+}
+
+.profile-hr {
+    border-top: 1px solid #737373;
+}
+
+.profile-photo {
+    width: 80px;
+    height: 80px;
+}
+
+.edit-profile-photo {
+    width: 230px;
+    height: 230px;
 }
 
 .post-image {
@@ -212,7 +225,7 @@ a:hover{
     display: flex;
 }
 
-.follow-btn {
+.follow-btn, #edit_profile_btn {
     font-size: smaller;
     border: 0px;
     margin-left: 10px;
