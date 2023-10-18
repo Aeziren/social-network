@@ -40,9 +40,11 @@
             <div class="post_content">
                 {{ post.content }}
             </div>
-            <div class="container-image">
-                <img src="{{ post.image }}" alt="Post Image" class="post-image">
-            </div>
+            {% if post.image %}
+                <div class="container-image">
+                    <img src="{{ post.image }}" alt="Post Image" class="post-image">
+                </div>
+            {% endif %}
             <button class="save_btn btn btn-primary" hidden>Save</button>
             <button class="cancel_btn btn btn-secondary" hidden>Cancel</button>
             {% if post in liked_posts %}
