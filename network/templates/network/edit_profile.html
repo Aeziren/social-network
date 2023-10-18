@@ -2,14 +2,6 @@
 
 {% block content %}
     <div class="user-container">
-        <div id="user-title">
-            <img src="{{ user.photo }}" class="edit-profile-photo">
-            <div class="title-bio">
-                <h4>{{ user.username }}'s Profile</h4>
-                <span>{{ user.bio }}</span>
-            </div>
-        </div>
-        <hr class="profile-hr">
         <div class="edit-container">
             <form action="{% url 'edit_profile' %}" method="POST">
                 <h4>Profile Photo</h4>

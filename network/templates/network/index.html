@@ -20,7 +20,7 @@
             {% endif %}
             <div class="container-profile">
                 <img src="{{ post.user.photo }}" class="profile-photo">
-                <div>
+                <div class="stats-container">
                     <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
                     <p class="gray">{{ post.timestamp }}</p>
                 </div>

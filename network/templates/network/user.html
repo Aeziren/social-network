@@ -4,7 +4,7 @@
     <div class="user-container">
         <div id="user-title">
             <img src="{{ profile.photo }}" class="profile-photo">
-            <div class="title-bio">
+            <div class="title-bio stats-container">
                 <h4>{{ profile.username }}'s Profile</h4>
                 <span>{{ profile.bio }}</span>
             </div>
@@ -32,7 +32,7 @@
             {% endif %}
             <div class="container-profile">
                 <img src="{{ post.user.photo }}" class="profile-photo">
-                <div>
+                <div class="stats-container">
                     <a href="{% url 'user' username=post.user %}"><h5>{{ post.user }}</h5></a>
                     <p class="gray">{{ post.timestamp }}</p>
                 </div>

@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
@@ -144,7 +144,8 @@ def edit_profile(request):
             user.photo = request.POST["new_photo"]
             user.save()
 
-    sleep(2)
+        return HttpResponseRedirect(f"user/{user.username}")
+
     return render(request, "network/edit_profile.html", {
         "photo": user.photo,
         "bio": user.bio
