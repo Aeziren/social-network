@@ -22,6 +22,6 @@ python manage.py runserver
 ```
 3. Now you're done! Website is hosted on [http://127.0.0.1:8000/](http://127.0.0.1:8000/) 
 
-If you're having trouble, in the video demonstration I'm showing the process.
+If you're having trouble, in the [video](https://youtu.be/SnUs5O5cdOQ) demonstration I'm showing the process.
 
 Questions, critics or suggestions I'd love to hear from you! 😃
